@@ -151,6 +151,7 @@ models = [
     {"name": "kormo",            "tokt": TOKENIZER_TYPE.BPE, "repo": "https://huggingface.co/KORMo-Team/KORMo-tokenizer", },
     {"name": "youtu",            "tokt": TOKENIZER_TYPE.BPE, "repo": "https://huggingface.co/tencent/Youtu-LLM-2B", },
     {"name": "solar-open",       "tokt": TOKENIZER_TYPE.BPE, "repo": "https://huggingface.co/upstage/Solar-Open-100B", },
+    {"name": "kolibri1",         "tokt": TOKENIZER_TYPE.BPE, "repo": "https://huggingface.co/Aleph-Alpha/Kolibri-1", },
     {"name": "exaone-moe",       "tokt": TOKENIZER_TYPE.BPE, "repo": "https://huggingface.co/LGAI-EXAONE/K-EXAONE-236B-A23B", },
     {"name": "qwen35",           "tokt": TOKENIZER_TYPE.BPE, "repo": "https://huggingface.co/Qwen/Qwen3.5-9B-Instruct", },
     {"name": "joyai-llm",        "tokt": TOKENIZER_TYPE.BPE, "repo": "https://huggingface.co/jdopensource/JoyAI-LLM-Flash", },

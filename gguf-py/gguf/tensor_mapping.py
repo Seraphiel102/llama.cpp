@@ -2859,6 +2859,21 @@ class TensorNameMap:
 
     # architecture-specific block mappings
     arch_block_mappings_cfg: dict[MODEL_ARCH, dict[MODEL_TENSOR, tuple[str, ...]]] = {
+        MODEL_ARCH.KOLIBRI1: {
+            # sandwich norms: HF "post_attention_layernorm" is the PRE-FFN norm here
+            MODEL_TENSOR.ATTN_POST_NORM: (
+                "model.layers.{bid}.post_attn_norm",
+            ),
+            MODEL_TENSOR.FFN_NORM: (
+                "model.layers.{bid}.post_attention_layernorm",
+            ),
+            MODEL_TENSOR.FFN_POST_NORM: (
+                "model.layers.{bid}.post_ffn_norm",
+            ),
+            MODEL_TENSOR.FFN_EXP_PROBS_B: (
+                "model.layers.{bid}.moe.router.expert_bias",
+            ),
+        },
         MODEL_ARCH.ARCTIC: {
             MODEL_TENSOR.FFN_NORM: (
                 "model.layers.{bid}.residual_layernorm",
