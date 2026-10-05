@@ -122,3 +122,16 @@ class OlmoeModel(TextModel):
             experts = [k for d in self._experts for k in d.keys()]
             if len(experts) > 0:
                 raise ValueError(f"Unprocessed experts: {experts}")
+
+
+@ModelBase.register("FlexOlmoForCausalLM")
+@ModelBase.example("allenai/BAR-2x7B-Tool-Use", "allenai/BAR-5x7B")
+class FlexOlmoModel(OlmoeModel):
+    """AllenAI FlexOlmo (BAR family).
+
+    Per `transformers.models.flex_olmo.modular_flex_olmo`, FlexOlmoDecoderLayer
+    is Olmo2's decoder layer with the dense FFN swapped for OlmoE-style top-k
+    MoE. The expert-merging logic is identical to OlmoE, so we inherit from
+    OlmoeModel and only override the architecture tag.
+    """
+    model_arch = gguf.MODEL_ARCH.FLEX_OLMO

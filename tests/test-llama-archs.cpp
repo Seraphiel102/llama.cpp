@@ -639,6 +639,7 @@ static bool moe_mandatory(const llm_arch arch) {
         case LLM_ARCH_PHIMOE:
         case LLM_ARCH_DBRX:
         case LLM_ARCH_OLMOE:
+        case LLM_ARCH_FLEX_OLMO:
         case LLM_ARCH_ARCTIC:
         case LLM_ARCH_DEEPSEEK:
         case LLM_ARCH_DEEPSEEK2:
