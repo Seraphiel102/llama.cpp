@@ -178,8 +178,8 @@ jobs:
             os: ubuntu-22.04
           - build: 'arm64'
             os: ubuntu-24.04-arm
-          - build: 's390x'
-            os: ubuntu-24.04-s390x
+          # s390x dropped on the hob fork: IBM's s390x runner only exists for ggml-org, so on a fork the job queues
+          # forever and blocks the release job (run 37338937147: 30/31 builds green, release never cut).
 
     runs-on: ${{ matrix.os }}
 
