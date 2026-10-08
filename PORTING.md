@@ -1,6 +1,7 @@
 # hob: patch stack on upstream llama.cpp
 
-`hob` is our unified llama.cpp fork. It is never pushed or upstreamed.
+`hob` is our unified llama.cpp fork. It lives on `Seraphiel102/llama.cpp`, where it builds the public
+`hob-bNNNNN` releases, and is never upstreamed.
 
 ## Upstream base
 
@@ -35,6 +36,19 @@ changes two things compared with the original:
   the April converter could not have written a GGUF from a clean tree.
 - It excludes `flex_olmo` from `llm_arch_supports_sm_tensor`, as OLMo2 and
   OLMoE are, because q/k norm spans all heads.
+
+## Fork-only CI and housekeeping
+
+These are not architecture patches. They keep the fork's GitHub Actions green and must be carried across rebases.
+
+| Commit | Subject | Why |
+|--------|---------|-----|
+| `8798b654e` | ci : drop the s390x release build | the `ubuntu-24.04-s390x` runner exists only upstream; it blocked the release |
+| `9bb50fd25` | convert : regenerate pre-tokenizer hashes | the hand-placed kolibri1 hash sat out of generator order and failed "Check Pre-Tokenizer Hashes"; same hash, moved |
+| `0f25b8c18` | ci : remove build-cann.yml | upstream left `jobs:` empty (all commented out), which GitHub reports as an invalid workflow on every push |
+| `9f15f3d34` | ci : drop the musa and s390x docker targets | the musa base-image registry times out from GitHub runners; the s390x runner exists only upstream |
+
+After a rebase, re-run `convert_hf_to_gguf_update.py --check-missing` and commit `conversion/base.py` if it changes.
 
 ## Verification
 
