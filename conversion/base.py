@@ -1899,6 +1899,9 @@ class TextModel(ModelBase):
         if chkhsh == "16389f0a1f51ee53e562ffd51c371dc508639ab0e4261502071836e50e223e91":
             # ref: https://huggingface.co/upstage/Solar-Open-100B
             res = "solar-open"
+        if chkhsh == "6e040dfe72e4b85855588c53acf4909ac4e98e55bc3a33cd7db499180dc42a78":
+            # ref: https://huggingface.co/Aleph-Alpha/Kolibri-1
+            res = "kolibri1"
         if chkhsh == "6c81ce329e0802883b22eabab0d3fa48357337ef1ecb45443828bf1f6254833f":
             # ref: https://huggingface.co/LGAI-EXAONE/K-EXAONE-236B-A23B
             res = "exaone-moe"
@@ -1941,9 +1944,6 @@ class TextModel(ModelBase):
         if chkhsh == "4b05e02dad1c5ae07d266fd3342ddb644c6f6be058d728bc0a33af31a1d6ee66":
             # ref: https://huggingface.co/jhu-clsp/mmBERT-base
             res = "mmbert"
-        if chkhsh == "6e040dfe72e4b85855588c53acf4909ac4e98e55bc3a33cd7db499180dc42a78":
-            # ref: https://huggingface.co/Aleph-Alpha/Kolibri-1
-            res = "kolibri1"
 
         if res is None:
             logger.warning("\n")
